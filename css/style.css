@@ -16964,7 +16964,7 @@ button:focus {
 .overlay-white-middle:before,
 .overlay-gradient-middle:before,
 .overlay-black-middle:before {
-  opacity: 0.7;
+  opacity: 0.4;
 }
 
 .overlay-primary-dark:before,
