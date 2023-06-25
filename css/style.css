@@ -24738,6 +24738,7 @@ ul a.rsswidget:hover {
   top: 50%;
   left: 50%;
   -webkit-transition: all 0.8s;
+
   -ms-transition: all 0.8s;
   transition: all 0.8s;
   background: var(--primary);

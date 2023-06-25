@@ -5,14 +5,10 @@
 	<!-- Meta -->
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="keywords" content=""/>
-	<meta name="author" content=""/>
-	<meta name="robots" content=""/>
-	<meta name="description" content="Harvelli - Home Renovation, Landscape, and Deck Services"/>
-	<meta property="og:title" content="Harvelli - Home Renovation, Landscape, and Deck Services"/>
-	<meta property="og:description" content=""/>
-	<meta property="og:image" content=""/>
-	<meta name="format-detection" content="telephone=no">
+	<meta name="keywords" content="house renovation services, landscape design and construction, deck maintenance and restoration, trusted renovation company, Greater Toronto Area renovation services, hassle-free renovation projects, excellence in house renovation, customer satisfaction in renovation, experienced renovation team, knowledgeable renovation professionals, innovative landscape design, reliable deck services, quality renovation materials, expertise in house renovation, deck maintenance experts, superior landscape construction, reputable renovation provider, industry best practices in renovation, renovation projects that exceed expectations, skilled professionals in renovation"/>
+	<meta name="author" content="M.Ali Bugucam"/>
+	<meta name="robots" content="ndex, follow"/>
+	<meta name="description" content="Harvelli is a trusted provider of house renovation, landscape design, and deck services in the Greater Toronto Area. With years of experience and expertise, we deliver excellence in renovation, ensuring hassle-free projects that exceed customer expectations. Contact us for innovative landscape construction and reliable deck maintenance."/>
 	
 	<!-- Mobile Specific -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,7 +33,49 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+	<!-- EmailJS -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 	
+	<script type="text/javascript">
+        (function() {
+            emailjs.init('P6ZwA02UxmqIGo2YQ');
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // generate a five digit number for the contact_number variable
+                this.contact_number.value = Math.random() * 100000 | 0;
+                // these IDs from the previous steps
+                emailjs.sendForm('service_sdxryck', 'template_yc5koaw', this)
+                    .then(function() {
+                        console.log('SUCCESS!');
+                        // reset each input field in the form
+                      var inputs = document.getElementById('contact-form').getElementsByTagName('input');
+                      for (var i = 0; i < inputs.length; i++) {
+                          inputs[i].value = '';
+                      }
+                      var textarea = document.getElementById('contact-form').getElementsByTagName('textarea')[0];
+                      textarea.value = '';
+                      Toastify({
+                      text: "Message sent successfully!",
+                      duration: 3000,
+                      close: true,
+                      gravity: "bottom",
+                      position: "right",
+                      backgroundColor: "#4CAF50",
+                      stopOnFocus: true,
+                  }).showToast();
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+    </script>
 </head>
 <body id="bg">
 <div id="loading-area" class="loading-page-4">
@@ -62,11 +100,11 @@
 			<div class="container">
 				<div class="dz-topbar-inner d-flex justify-content-between align-items-center">
 					<div class="dz-topbar-left">
-						<p>Mon 8am - 7pm    -   Sunday 10am - 4pm</p>
+						<p>Mon-Fri: 9am - 5pm</p>
 					</div>
 					<div class="dz-topbar-right">
 						<ul>
-							<li><i class="fas fa-phone-alt"></i> Phone line:  (123) 456-7891</li>
+							<li><i class="fas fa-phone-alt"></i> Phone line:  289 980-5353</li>
 							<li><i class="fas fa-envelope"></i> info@harvelli.ca</li>
 						</ul>
 					</div>
@@ -108,13 +146,13 @@
 							<li class="has-mega-menu"><a href="projects.html">Projects</a></li>
 							<li class="sub-menu-down"><a href="javascript:void(0);"><span>Services</span></a>
 								<ul class="sub-menu">
-									<li><a href="landscape.html">Landscape</a></li>
-									<li><a href="renovation.html">Renovation</a></li>
-									<li><a href="deck.html">Deck</a></li>
+									<li><a href="landscape.html">Landscape & Interlocking</a></li>
+									<li><a href="renovation.html">House Renovation</a></li>
+									<li><a href="deck.html">Deck & Fence</a></li>
 								</ul>
 							</li>
 
-							<li class="sub-menu-down"><a href="#"><span>Blog</span></a></li>
+							<li class="sub-menu-down"><a href="blog.html"><span>News & Trends</span></a></li>
 
 
 							
@@ -122,9 +160,8 @@
 						<div class="dz-social-icon">
 							<ul>
 								<li><a class="fab fa-facebook-f" href="https://www.facebook.com/"></a></li>
-								<li><a class="fab fa-twitter" href="https://twitter.com/?lang=en"></a></li>
-								<li><a class="fab fa-linkedin-in" href="https://www.linkedin.com/"></a></li>
 								<li><a class="fab fa-instagram" href="https://www.instagram.com/?hl=en"></a></li>
+								<li><a class="fab fa-linkedin-in" href="https://www.linkedin.com/"></a></li>
 							</ul>
 						</div>	
 					</div>
@@ -215,9 +252,9 @@
 								<h2 class="title m-b20">Improvement of Your House Exterior and Interior</h2>
 							</div>
 							<ul class="list-check-box">
-								<li>Landscape</li>
+								<li>Landscape & Interlocking</li>
 								<li>House Renovation</li>
-								<li>Deck</li>
+								<li>Deck & Fence</li>
 							</ul>
 						</div>
 					</div>
@@ -245,13 +282,14 @@
 					<div class="col-lg-3 col-sm-6">
 						<div class="counter-style-3 m-b30 icon-up">
 							<div class="icon-bx icon-md text-white">
-								<i class="flaticon-engineer-2"></i>
+								<!-- <i class="flaticon-engineer-2"></i> -->
+								<i class="flaticon-users"></i>
 							</div>
 							<div class="counter-info">
 								<div class="counter-num">
-									<h2 class="counter text-white">2374</h2>
+									<h2 class="counter text-white">261</h2>
 								</div>
-								<h5 class="counter-text text-white">Expert Exployee</h5>
+								<h5 class="counter-text text-white">Happy Clients</h5>
 							</div>
 						</div>
 					</div>
@@ -262,22 +300,9 @@
 							</div>
 							<div class="counter-info">
 								<div class="counter-num">
-									<h2 class="counter text-white">4563</h2>
+									<h2 class="counter text-white">310</h2>
 								</div>
-								<h5 class="counter-text text-white">Project Complited</h5>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-sm-6">
-						<div class="counter-style-3 m-b30 icon-up">
-							<div class="icon-bx icon-md text-white">
-								<i class="flaticon-trophy"></i>
-							</div>
-							<div class="counter-info">
-								<div class="counter-num">
-									<h2 class="counter text-white">1475</h2>
-								</div>
-								<h5 class="counter-text text-white">Award Winning</h5>
+								<h5 class="counter-text text-white">Finished Project</h5>
 							</div>
 						</div>
 					</div>
@@ -288,9 +313,22 @@
 							</div>
 							<div class="counter-info">
 								<div class="counter-num">
-									<h2 class="counter text-white">1024</h2>
+									<h2 class="counter text-white">64</h2>
 								</div>
-								<h5 class="counter-text text-white">Happy Client</h5>
+								<h5 class="counter-text text-white">Locations</h5>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-sm-6">
+						<div class="counter-style-3 m-b30 icon-up">
+							<div class="icon-bx icon-md text-white">
+								<i class="flaticon-trophy"></i>
+							</div>
+							<div class="counter-info">
+								<div class="counter-num">
+									<h2 class="counter text-white">486102</h2>
+								</div>
+								<h5 class="counter-text text-white">SqFeet of Land</h5>
 							</div>
 						</div>
 					</div>
@@ -307,27 +345,23 @@
 								<h6 class="sub-title text-primary">CONTACT US</h6>
 								<h3 class="title m-b20">Request A Quote</h3>
 							</div>
-							<form class="dz-form dzForm" method="POST" action="script/contact_smtp.php">
-								<input type="hidden" class="form-control" name="dzToDo" value="Contact">
-								<div class="dzFormMsg"></div>		
+							<form id="contact-form" class="dz-form dzForm">
+								<input type="hidden" class="form-control" name="contact_number" value="Contact">
+								<!-- <div class="dzFormMsg"></div>		 -->
 								<div class="input-group">
-									<input required type="text" class="form-control" name="dzOther[first_name]" placeholder="Full Name">
+									<input required type="text" class="form-control" name="dzName" placeholder="Full Name">
 								</div>
 								<div class="input-group">
 									<input required type="text" class="form-control" name="dzEmail" placeholder="Email Adress">
 								</div>
 								<div class="input-group">
-									<input required type="text" class="form-control" name="dzOther[phone_number]" placeholder="Phone No.">
+									<input required type="text" class="form-control" name="dzPhoneNumber" placeholder="Phone No.">
 								</div>
 								<div class="input-group">
-									<textarea required name="dzMessage" rows="5" class="form-control">Message</textarea>
-								</div>
-								<div class="input-group">
-									<div class="g-recaptcha" data-sitekey="<!-- Put reCaptcha Site Key -->" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
-									<input class="form-control d-none" style="display:none;" data-recaptcha="true" required data-error="Please complete the Captcha">
+									<textarea required name="message" rows="5" class="form-control" placeholder="Brief info about the project"></textarea>
 								</div>
 								<div>
-									<button name="submit" type="submit" value="submit" class="btn btn-primary">SUBSCRIBE NOW</button>
+									<button type="submit" value="send" class="btn w-100 btn-primary btn-border">CONTACT US</button>
 								</div>
 							</form>
 						</div>
@@ -393,7 +427,7 @@
 								<ul>
 									<li><a class="fab fa-facebook-f" href="https://www.facebook.com/"></a></li>
 									<li><a class="fab fa-instagram" href="https://www.instagram.com/?hl=en"></a></li>
-									<li><a class="fab fa-twitter" href="https://twitter.com/?lang=en"></a></li>
+									<li><a class="fab fa-linkedin-in" href="https://twitter.com/?lang=en"></a></li>
 								</ul>
 							</div>
 						</div>
@@ -402,9 +436,9 @@
 						<div class="widget widget_services">
 							<h4 class="footer-title">EXPLORE</h4>
 							<ul class="list-2">
-								<li><a href="#">About Us</a></li>
+								<li><a href="about.html">About Us</a></li>
 								<li><a href="projects.html">Projects</a></li>
-								<li><a href="#">Blog</a></li>
+								<li><a href="blog.html">News & Trends</a></li>
 								<li><a href="contact-us.html">Contact Us</a></li>
 							</ul>
 						</div>
@@ -413,9 +447,9 @@
 						<div class="widget widget_services">
 							<h4 class="footer-title">SERVICES</h4>
 							<ul >
-								<li><a href="landscape.html">Landscape</a></li>
-								<li><a href="renovation.html">Renovation</a></li>
-								<li><a href="deck.html">Deck</a></li>
+								<li><a href="landscape.html">Landscape & Interlocking</a></li>
+								<li><a href="renovation.html">House Renovation</a></li>
+								<li><a href="deck.html">Deck & Fence</a></li>
 							</ul>
 						</div>
 					</div>
@@ -425,15 +459,15 @@
 							<div class="widget-post-bx">
 								<div class="widget-post clearfix">
 									<div class="dz-media"> 
-										<img src="images/blog/recent-blog/pic1.jpg" alt="">
+										<img src="images/blog/recent-blog/pic3.jpg" alt="">
 									</div>
 									<div class="dz-info">
 										<div class="dz-meta">
 											<ul>
-												<li class="post-date"> 7 March, 2022</li>
+												<li class="post-date"> May 26, 2023</li>
 											</ul>
 										</div>
-										<h6 class="title"><a href="blog-details.html">Aliqua sodales vestibulum risus nterdum malesuad</a></h6>
+										<h6 class="title"><a href="blog3.html">How to Ensure a Hassle-Free Experience for Homeowners</a></h6>
 									</div>
 								</div>
 								<div class="widget-post clearfix">
@@ -443,10 +477,10 @@
 									<div class="dz-info">
 										<div class="dz-meta">
 											<ul>
-												<li class="post-date"> 6 March, 2022 </li>
+												<li class="post-date">March 17, 2023</li>
 											</ul>
 										</div>
-										<h6 class="title"><a href="blog-details.html">How To Make Money From The AGENCY Phenomenon</a></h6>
+										<h6 class="title"><a href="blog2.html">Essential Tips for Deck Maintenance and Restoration</a></h6>
 									</div>
 								</div>
 							</div>
