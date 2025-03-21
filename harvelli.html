@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Harvelli - Professional Landscaping Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #005540;
+            --primary-dark: #004030;
+            --primary-light: #0c7359;
+            --accent: #e8b75d;
+            --accent-dark: #d5a140;
+            --dark: #111827;
+            --dark-gray: #1f2937;
+            --medium-gray: #374151;
+            --light-gray: #f3f4f6;
+            --white: #ffffff;
+            --off-white: #f9fafb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        html {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: var(--dark);
+            padding: 0.75rem 0;
+            color: var(--white);
+        }
+
+        .top-bar-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .phone-button {
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1.25rem;
+            transition: color 0.3s;
+            width: 100%;
+            text-align: center;
+        }
+
+        .phone-button:hover {
+            color: var(--accent);
+        }
+
+        /* Header */
+        .header {
+            padding: 1rem 0;
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 10;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero {
+    position: relative;
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 5rem 0;
+    text-align: center;
+    overflow: hidden;
+    background-image: url('D:/github/harvelli/images/ads/1 - Hero Section.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3.25rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .feature-badges {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .feature-badge {
+            margin: 0 0.75rem;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .feature-badge .icon {
+            margin-right: 0.5rem;
+            color: var(--accent);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--dark);
+            padding: 1rem 2.5rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 0;
+            background-color: var(--light-gray);
+            text-align: center;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -0.75rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        .services-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .services-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-image-box {
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 180px;
+            background-color: var(--light-gray);
+        }
+        
+        .service-image {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .service-content {
+            padding: 1.5rem;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .service-description {
+            font-size: 1rem;
+            color: var(--medium-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .service-link {
+            display: inline-block;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--primary);
+            border-radius: 4px;
+            transition: all 0.3s;
+            margin-top: auto;
+            align-self: center;
+        }
+
+        .service-link:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        /* Why Choose Us Section */
+        .why-choose-us {
+            padding: 5rem 0;
+            background-color: var(--white);
+            text-align: center;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        .why-choose-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            width: 100%;
+        }
+        
+        .why-choose-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .why-choose-list {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-align: left;
+            width: 100%;
+            padding: 0 1rem;
+        }
+
+        .why-choose-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            padding: 0 0.5rem;
+            width: 100%;
+        }
+
+        .why-choose-icon {
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .why-choose-text {
+            color: var(--medium-gray);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            flex: 1;
+            word-wrap: break-word;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 5rem 0;
+            background-color: var(--white);
+        }
+
+        .faq-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .faq-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--light-gray);
+            padding-bottom: 0.5rem;
+        }
+
+        .faq-question {
+            position: relative;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            padding: 1rem 2rem 1rem 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .faq-question:after {
+            content: '+';
+            position: absolute;
+            right: 0.5rem;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question:after {
+            content: '-';
+        }
+
+        .faq-answer {
+            color: var(--medium-gray);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background-color: var(--primary);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(0, 85, 64, 0.95), rgba(0, 85, 64, 0.95)), url('/api/placeholder/1200/800');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        .contact-container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-title {
+            color: var(--white);
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .contact-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .contact-form-container {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            padding: 3rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark-gray);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 85, 64, 0.1);
+        }
+
+        .form-submit {
+            grid-column: 1 / -1;
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 1rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            margin-top: 1rem;
+        }
+
+        .form-submit:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            padding: 4rem 0 2rem;
+            color: var(--white);
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-address {
+            margin-bottom: 0.5rem;
+            color: #d1d5db;
+        }
+
+        .footer-contact {
+            margin-bottom: 2rem;
+            color: #d1d5db;
+        }
+
+        .footer-divider {
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.1);
+            margin: 2rem 0;
+        }
+
+        .footer-copyright {
+            font-size: 0.875rem;
+            color: #9ca3af;
+        }
+
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.75rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .gta-section .gta-container {
+                flex-direction: column;
+            }
+            
+            .gta-section .image-col {
+                width: 100%;
+                order: -1;
+                margin-bottom: 2rem;
+            }
+            
+            .gta-section .content-col {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.25rem;
+            }
+            
+            .section-title, 
+            .services-title,
+            .faq-title,
+            .contact-title,
+            .paradise-title,
+            .why-choose-title {
+                font-size: 1.75rem;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services, 
+            .paradise, 
+            .faq, 
+            .contact,
+            .gta-section,
+            .why-choose-us {
+                padding: 3rem 0;
+            }
+            
+            .header {
+                padding: 0.75rem 0;
+            }
+            
+            .phone-button {
+                font-size: 1rem;
+            }
+            
+            .hero {
+                padding: 4rem 0 3rem;
+            }
+            
+            .feature-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .feature-badge {
+                margin: 0.25rem 0;
+            }
+            
+            .service-card {
+                max-width: 100%;
+            }
+            
+            .why-choose-item {
+                padding: 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 1.85rem;
+                margin-bottom: 1rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
+            
+            .contact-form {
+                padding: 1.5rem;
+            }
+            
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            .why-choose-text {
+                font-size: 0.95rem;
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+                hyphens: auto;
+            }
+            
+            .why-choose-item {
+                padding: 0;
+            }
+            
+            .why-choose-list {
+                padding: 0 0.75rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            body {
+                overflow-x: hidden;
+                width: 100%;
+                max-width: 100vw;
+            }
+            
+            html {
+                overflow-x: hidden;
+                max-width: 100vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-container">
+            <a href="tel:6475346163" class="phone-button">
+                📞Call Us: 647-534-6163
+            </a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo">Harvelli</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-container">
+            <h1 class="hero-title">Transform Your Outdoor Space into a Breathtaking Oasis</h1>
+            <p class="hero-subtitle">Professional Landscaping in the GTA</p>
+                        <a href="#contact" class="cta-button">Get Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- Paradise Section with improved mobile image display and Safety Badges -->
+    <style>
+        .paradise-section {
+            background-color: white;
+            padding: 5rem 0;
+        }
+        
+        .paradise-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .paradise-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #005540;
+            margin-bottom: 3rem;
+        }
+        
+        .paradise-flex-container {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .paradise-image {
+        background-image: url('D:/github/harvelli/images/ads/2 - Landscaping services.jpg');
+            flex: 1;
+            background-color: #fff556;
+            height: 350px;
+            border-radius: 8px;
+            overflow: hidden;
+            min-height: 250px; /* Ensure minimum height on all devices */
+        }
+        
+        .paradise-content {
+            flex: 1;
+        }
+        
+        .paradise-text {
+            font-size: 1.05rem;
+            color: #374151;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        
+        .paradise-cta {
+            display: inline-block;
+            background-color: #e8b75d;
+            color: #111827;
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            border-radius: 4px;
+            text-decoration: none;
+            text-align: center;
+            width: 100%;
+        }
+        
+        /* Safety Badges Styles */
+        .safety-badges-container {
+            display: flex;
+            justify-content: center;
+            max-width: 1100px;
+            margin: 4rem auto 0;
+            text-align: center;
+            gap: 4rem;
+        }
+        
+        .safety-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .safety-badge-icon {
+            height: 60px;
+            width: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .safety-badge-icon svg {
+            height: 100%;
+            width: 100%;
+        }
+        
+        .safety-badge-title {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #374151;
+        }
+        
+        @media (max-width: 768px) {
+            .paradise-flex-container {
+                flex-direction: column;
+            }
+            
+            .paradise-image {
+                width: 100%;
+                margin-bottom: 2rem;
+                height: 250px; /* Fixed height on mobile */
+                display: block; /* Ensure block display */
+            }
+            
+            .paradise-content {
+                width: 100%;
+            }
+            
+            .paradise-title {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+            
+            .paradise-section {
+                padding: 3rem 0;
+            }
+            
+            .safety-badges-container {
+                flex-wrap: wrap;
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+    .safety-badges-container {
+        display: flex;
+        flex-wrap: nowrap; /* Keep badges in one line */
+        justify-content: space-around; /* Adjust spacing */
+        overflow-x: auto; /* Allow scrolling if necessary */
+        padding-bottom: 5px;
+    }
+
+    .safety-badge {
+        flex: 1 1 auto;
+        min-width: 90px; /* Adjust based on design */
+        text-align: center;
+        white-space: normal; /* Allow text to wrap */
+    }
+
+    .safety-badge-title {
+        display: block;
+        font-size: 12px; /* Adjust for better readability */
+        line-height: 1.2;
+    }
+
+    /* Hide scrollbar */
+    .safety-badges-container::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+    </style>
+    
+    <section class="paradise-section">
+        <div class="paradise-container">
+            <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landscaping Services</title>
+    
+    <!-- Google Font for Handwritten Style -->
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    
+    <style>
+        .handwritten {
+            font-family: 'Indie Flower', cursive;
+            font-size: 1.2em; /* Adjust size if needed */
+        }
+    </style>
+</head>
+<body>
+
+    <h2 class="paradise-title">
+        Turn Your Yard into a Paradise 
+        <span class="handwritten">with our Landscaping Services</span>
+    </h2>
+
+</body>
+</html>
+
+            
+            <div class="paradise-flex-container">
+                <div class="paradise-image">
+                    <!-- This is the placeholder for the dark image box -->
+                </div>
+                
+                <div class="paradise-content">
+    <p class="paradise-text">
+        Your home deserves a backyard that <strong>stands out</strong>. Whether it's a custom-designed patio, elegant interlocking, or a luxurious pool, <strong>we bring your vision to life</strong> with expert craftsmanship.
+    </p>
+    
+    <a href="#contact" class="paradise-cta">Get a FREE Quote</a>
+</div>
+
+            </div>
+            
+            <!-- Simple Safety Badges Section -->
+            <div class="safety-badges-container">
+                <div class="safety-badge">
+                    <div class="safety-badge-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#005540" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <path d="M9.5 12l2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <div class="safety-badge-title">2-Year Warranty</div>
+                </div>
+                
+                <div class="safety-badge">
+                    <div class="safety-badge-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#005540" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="1" y="3" width="15" height="13"/>
+                            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                            <circle cx="5.5" cy="18.5" r="2.5"/>
+                            <circle cx="18.5" cy="18.5" r="2.5"/>
+                        </svg>
+                    </div>
+                    <div class="safety-badge-title">Free Site Assessment</div>
+                </div>
+                
+                <div class="safety-badge">
+                    <div class="safety-badge-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#005540" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <div class="safety-badge-title">On-Time Completion</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="services-title">Our Services</h2>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                        <img src="D:/github/harvelli/images/ads/3 - landscaping.jpg" alt="Landscaping" class="service-image">
+                    <div class="service-content">
+                        <h3 class="service-title">Landscaping</h3>
+                        <p class="service-description">Breathtaking garden designs that elevate your outdoor space.</p>
+                        <a href="#contact" class="service-link">Get a Quote</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                        <img src="D:/github/harvelli/images/ads/4 - interlocking.jpg" alt="Interlocking" class="service-image">
+                    <div class="service-content">
+                        <h3 class="service-title">Interlocking</h3>
+                        <p class="service-description">Durable, stylish driveways, walkways & patios.</p>
+                        <a href="#contact" class="service-link">Get a Quote</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                        <img src="D:/github/harvelli/images/ads/5 - Pool creation.jpg" alt="Pool Creation" class="service-image">
+                    <div class="service-content">
+                        <h3 class="service-title">Pool Creation</h3>
+                        <p class="service-description">Custom-built pools designed for relaxation & fun.</p>
+                        <a href="#contact" class="service-link">Get a Quote</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Why Choose Us Section -->
+    <section id="why-choose-us" class="why-choose-us">
+        <div class="container">
+            <h2 class="why-choose-title">Why Choose Us?</h2>
+            
+            <div class="why-choose-list">
+    <div class="why-choose-item">
+        <div class="why-choose-icon">🔹</div>
+        <div class="why-choose-text"><strong>Turn Your Backyard into a Retreat</strong> – Escape the stress of daily life and relax in your own private paradise.</div>
+    </div>
+    <div class="why-choose-item">
+        <div class="why-choose-icon">🔹</div>
+        <div class="why-choose-text"><strong>Impress Your Guests</strong> – Create a space that wows visitors and makes every gathering unforgettable.</div>
+    </div>
+    <div class="why-choose-item">
+        <div class="why-choose-icon">🔹</div>
+        <div class="why-choose-text"><strong>Increase Your Property Value</strong> – Professionally designed landscapes add curb appeal and resale value.</div>
+    </div>
+    <div class="why-choose-item">
+        <div class="why-choose-icon">🔹</div>
+        <div class="why-choose-text"><strong>Hassle-Free Process</strong> – From design to installation, we handle everything so you can enjoy the transformation.</div>
+    </div>
+    <div class="why-choose-item">
+        <div class="why-choose-icon">🔹</div>
+        <div class="why-choose-text"><strong>Built to Last</strong> – We use premium materials and expert craftsmanship for long-lasting beauty.</div>
+    </div>
+</div>
+
+            
+            <a href="#contact" class="cta-button">Get Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item active">
+                    <div class="faq-question">What services do you offer?</div>
+                    <div class="faq-answer">We specialize in interlocking, landscaping, and pool installation, including patios, driveways, retaining walls, and full outdoor transformations.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How much does a project cost?</div>
+                    <div class="faq-answer">Pricing varies based on size, materials, and design. Contact us for a free estimate tailored to your needs.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How long does installation take?</div>
+                    <div class="faq-answer">Timelines depend on project complexity, but most interlocking and pool installations take a few weeks.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Do you offer warranties?</div>
+                    <div class="faq-answer">Yes, we provide warranties on our workmanship and materials. Details will be discussed during your consultation.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How do I get started?</div>
+                    <div class="faq-answer">Fill the form below to schedule a free consultation and let's bring your outdoor vision to life!</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Contact Section -->
+<section id="contact" class="contact">
+    <div class="container contact-container">
+        <h2 class="contact-title">Get Your Free Quote</h2>
+        <p class="contact-subtitle" style="font-size: 1.1rem; text-align: center; margin-bottom: 20px;">
+            Fill out the form, and our team will contact you to discuss your landscaping needs and provide a free estimate!
+        </p>
+        <div class="contact-form-container">
+            <form class="contact-form" id="contactForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label" for="name" style="font-weight: bold; font-size: 1.2rem;">Your Full Name</label>
+                        <input class="form-control" type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="email" style="font-weight: bold; font-size: 1.2rem;">Email Address</label>
+                        <input class="form-control" type="email" id="email" name="email" placeholder="Enter your email address" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="phone" style="font-weight: bold; font-size: 1.2rem;">Phone Number</label>
+                        <input class="form-control" type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="service" style="font-weight: bold; font-size: 1.2rem;">Service of Interest</label>
+                        <input class="form-control" type="text" id="service" name="service" placeholder="What service are you interested in?" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label class="form-label" for="message" style="font-weight: bold; font-size: 1.2rem;">Tell Us About Your Project</label>
+                        <textarea class="form-control" id="message" name="message" rows="4" placeholder="Share details about your project" required></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">Get Your Free Quote Now</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Harvelli</div>
+                <p class="footer-address">7250 Keele St, Unit 292, Vaughan, ON L4K 1Z8</p>
+                <p class="footer-contact">647-534-6163 | info@harvelli.ca</p>
+                <div class="footer-divider"></div>
+                <p class="footer-copyright">© 2025 Harvelli Landscaping. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Collect form data
+            const formData = new FormData(this);
+            const formObject = {};
+            formData.forEach((value, key) => {
+                formObject[key] = value;
+            });
+
+            // Basic validation
+            if (!formObject.name || !formObject.email || !formObject.phone || !formObject.service || !formObject.message) {
+                alert('Please fill out all required fields');
+                return;
+            }
+
+            // In a real-world scenario, you would send this data to a server
+            console.log('Form Submission Data:', formObject);
+
+            // Show success message
+            alert('Thank you for your inquiry! We will contact you shortly with your free quote.');
+
+            // Reset the form
+            this.reset();
+        });
+
+        // Smooth scroll for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                // Close all other items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== question.parentElement) {
+                        item.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                question.parentElement.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
