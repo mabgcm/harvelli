@@ -121,37 +121,58 @@
     background-position: center;
 }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            z-index: 1;
-        }
+.hero {
+    position: relative;
+    text-align: center;
+    color: white; /* Ensure text is readable */
+    padding: 100px 20px;
+}
 
-        .hero-container {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Reduced darkness for better visibility */
+    z-index: 1;
+}
 
-        .hero-title {
-            font-size: 3.25rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
+.hero-container {
+    position: relative;
+    z-index: 2;
+}
 
-        .hero-subtitle {
-            font-size: 1.25rem;
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-        }
+.hero-title {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add text shadow for readability */
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.cta-button {
+    display: inline-block;
+    background: #f4a261; /* Adjust button color */
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+    background: #e76f51; /* Slightly darker on hover */
+    transform: scale(1.05);
+}
+
 
         .feature-badges {
             display: flex;
@@ -223,17 +244,27 @@
             background-color: var(--accent);
         }
         
-        .services-title {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 3rem;
-            text-align: center;
-            position: relative;
-        }
+      .services-title {
+    font-size: 3rem !important; /* Increase font size */
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #005540 !important; /* Replace this with the original font color */
+}
+
+/* Ensure larger size on mobile */
+@media (max-width: 768px) {
+    .services-title {
+        font-size: 3rem !important; /* Keep large size on mobile */
+        line-height: 1.2;
+        color: #005540 !important; /* Ensure correct font color */
+    }
+}
+
         
         .services-title::after {
             content: '';
-            position: absolute;
+            position: relative;
             bottom: -1rem;
             left: 50%;
             transform: translateX(-50%);
@@ -736,6 +767,75 @@
             }
         }
     </style>
+
+<!-- EmailJS CDN -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<script type="text/javascript">
+    (function() {
+        // Initialize with your EmailJS public key (same as in contact-us.html)
+        emailjs.init('P6ZwA02UxmqIGo2YQ');
+    })();
+
+    window.onload = function() {
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Create a contact_number field (required by EmailJS template)
+            const formData = new FormData(this);
+            formData.append('contact_number', Math.random() * 100000 | 0);
+            
+            // Convert FormData to object for EmailJS
+            const formObject = {};
+            formData.forEach((value, key) => {
+                formObject[key] = value;
+            });
+            
+            // Map form fields to EmailJS template parameters
+            const templateParams = {
+                contact_number: formObject.contact_number,
+                dzName: formObject.name,
+                dzEmail: formObject.email,
+                dzPhoneNumber: formObject.phone,
+                message: formObject.message,
+                service: formObject.service
+            };
+            
+            // Send email using EmailJS - use the same service and template IDs from contact-us.html
+            emailjs.send('service_sdxryck', 'template_yc5koaw', templateParams)
+                .then(function() {
+                    console.log('SUCCESS!');
+                    // Reset the form
+                    document.getElementById('contactForm').reset();
+                    
+                    // Show success message with Toastify
+                    Toastify({
+                        text: "Message sent successfully! We'll contact you shortly.",
+                        duration: 3000,
+                        close: true,
+                        gravity: "bottom",
+                        position: "right",
+                        backgroundColor: "#005540", // Using your primary green color
+                        stopOnFocus: true,
+                    }).showToast();
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    // Show error message
+                    Toastify({
+                        text: "Failed to send message. Please try again later.",
+                        duration: 3000,
+                        close: true,
+                        gravity: "bottom",
+                        position: "right",
+                        backgroundColor: "#cc0000",
+                        stopOnFocus: true,
+                    }).showToast();
+                });
+        });
+    };
+</script>
 </head>
 <body>
     <!-- Top Bar -->
@@ -757,9 +857,14 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-container">
-            <h1 class="hero-title">Transform Your Outdoor Space into a Breathtaking Oasis</h1>
+            <div class="hero-text">
+    <h1 class="hero-title">Transform Your Outdoor Space</h1>
+    <h1 class="hero-title">Into a Breathtaking Oasis</h1>
+</div>
+
+
             <p class="hero-subtitle">Professional Landscaping in the GTA</p>
-                        <a href="#contact" class="cta-button">Get Free Consultation</a>
+                        <a href="#contact" class="cta-button">Get a FREE Quote</a>
         </div>
     </section>
 
@@ -803,28 +908,43 @@
         }
         
         .paradise-content {
+		margin-top: -50px;
             flex: 1;
         }
         
         .paradise-text {
-            font-size: 1.05rem;
-            color: #374151;
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
+margin-bottom: 20px; /* Adjust value as needed */
+    font-size: 1.2rem; /* Default size */
+    line-height: 1.6; /* Improves readability */
+}
+
+/* Increase size on larger screens */
+@media (min-width: 1024px) {
+    .paradise-text {
+        font-size: 1.6rem; /* Bigger text on desktop */
+        line-height: 1.8;
+    }
+}
         
         .paradise-cta {
-            display: inline-block;
-            background-color: #e8b75d;
-            color: #111827;
-            padding: 1rem 2rem;
-            font-size: 1.125rem;
-            font-weight: 600;
-            border-radius: 4px;
-            text-decoration: none;
-            text-align: center;
-            width: 100%;
-        }
+    display: inline-block;
+    background-color: #E8B75D; /* Default color */
+    color: #111827;
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    border-radius: 4px;
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.paradise-cta:hover {
+    background-color: #D5A140; /* Hover color */
+    transform: translateY(-3px); /* Lift effect */
+}
+
         
         /* Safety Badges Styles */
         .safety-badges-container {
@@ -937,17 +1057,20 @@
     
     <style>
         .handwritten {
-            font-family: 'Indie Flower', cursive;
-            font-size: 1.2em; /* Adjust size if needed */
-        }
+    font-family: 'Caveat', cursive; /* Most used handwriting font */
+    font-size: 0.7em; /* Slightly smaller size */
+    display: block; /* Moves it to the next line */
+    font-weight: 500; /* Adjusts thickness */
+}
+
     </style>
 </head>
 <body>
 
     <h2 class="paradise-title">
-        Turn Your Yard into a Paradise 
-        <span class="handwritten">with our Landscaping Services</span>
-    </h2>
+    Turn Your Yard into a Paradise <br>
+    <span class="handwritten">With Our Landscaping Services</span>
+</h2>
 
 </body>
 </html>
@@ -1057,18 +1180,25 @@
         <div class="why-choose-icon">🔹</div>
         <div class="why-choose-text"><strong>Increase Your Property Value</strong> – Professionally designed landscapes add curb appeal and resale value.</div>
     </div>
-    <div class="why-choose-item">
-        <div class="why-choose-icon">🔹</div>
-        <div class="why-choose-text"><strong>Hassle-Free Process</strong> – From design to installation, we handle everything so you can enjoy the transformation.</div>
-    </div>
-    <div class="why-choose-item">
-        <div class="why-choose-icon">🔹</div>
-        <div class="why-choose-text"><strong>Built to Last</strong> – We use premium materials and expert craftsmanship for long-lasting beauty.</div>
-    </div>
+<div class="why-choose-item hide-on-mobile">
+    <div class="why-choose-icon">🔹</div>
+    <div class="why-choose-text"><strong>Hassle-Free Process</strong> – From design to installation, we handle everything so you can enjoy the transformation.</div>
+</div>
+<div class="why-choose-item hide-on-mobile">
+    <div class="why-choose-icon">🔹</div>
+    <div class="why-choose-text"><strong>Built to Last</strong> – We use premium materials and expert craftsmanship for long-lasting beauty.</div>
 </div>
 
+</div>
+<style>
+@media (max-width: 768px) {
+    .hide-on-mobile {
+        display: none !important;
+    }
+}
+</style>
             
-            <a href="#contact" class="cta-button">Get Free Consultation</a>
+            <a href="#contact" class="cta-button">Get a FREE Quote</a>
         </div>
     </section>
 
@@ -1110,30 +1240,38 @@
         </p>
         <div class="contact-form-container">
             <form class="contact-form" id="contactForm">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label class="form-label" for="name" style="font-weight: bold; font-size: 1.2rem;">Your Full Name</label>
-                        <input class="form-control" type="text" id="name" name="name" placeholder="Enter your full name" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="email" style="font-weight: bold; font-size: 1.2rem;">Email Address</label>
-                        <input class="form-control" type="email" id="email" name="email" placeholder="Enter your email address" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="phone" style="font-weight: bold; font-size: 1.2rem;">Phone Number</label>
-                        <input class="form-control" type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="service" style="font-weight: bold; font-size: 1.2rem;">Service of Interest</label>
-                        <input class="form-control" type="text" id="service" name="service" placeholder="What service are you interested in?" required>
-                    </div>
-                    <div class="form-group full-width">
-                        <label class="form-label" for="message" style="font-weight: bold; font-size: 1.2rem;">Tell Us About Your Project</label>
-                        <textarea class="form-control" id="message" name="message" rows="4" placeholder="Share details about your project" required></textarea>
-                    </div>
-                    <button type="submit" class="form-submit">Get Your Free Quote Now</button>
-                </div>
-            </form>
+    <div class="form-grid">
+        <div class="form-group">
+            <label class="form-label" for="name" style="font-weight: bold; font-size: 1.2rem;">Your Full Name</label>
+            <input class="form-control" type="text" id="name" name="name" placeholder="Enter your full name" required>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="email" style="font-weight: bold; font-size: 1.2rem;">Email Address</label>
+            <input class="form-control" type="email" id="email" name="email" placeholder="Enter your email address" required>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="phone" style="font-weight: bold; font-size: 1.2rem;">Phone Number</label>
+            <input class="form-control" type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="service" style="font-weight: bold; font-size: 1.2rem;">
+                which service are you interested in?
+            </label>
+            <select class="form-control" id="service" name="service" required>
+                <option value="" disabled selected>Select a service</option>
+                <option value="landscaping">Landscaping</option>
+                <option value="interlocking">Interlocking</option>
+                <option value="pool-installation">Pool Installation</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div class="form-group full-width">
+            <label class="form-label" for="message" style="font-weight: bold; font-size: 1.2rem;">Tell Us About Your Project</label>
+            <textarea class="form-control" id="message" name="message" rows="4" placeholder="Share details about your project" required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Get Your Free Quote Now</button>
+    </div>
+</form>
         </div>
     </div>
 </section>

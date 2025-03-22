@@ -2,6 +2,20 @@
 /**
 Core script to handle the entire theme and core functions
 **/
+
+// Add this at the very top of custom.js, before anything else
+(function() {
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('loading-area').style.display = 'none';
+    });
+    
+    // For immediate execution
+    if (document.getElementById('loading-area')) {
+        document.getElementById('loading-area').style.display = 'none';
+    }
+})();
+
+
 var Indiro = function () {
 	/* Search Bar ============ */
 	siteUrl = '';
@@ -814,17 +828,22 @@ jQuery(document).ready(function () {
 
 /* Window Load START */
 jQuery(window).on('load', function () {
-	'use strict';
+    'use strict';
 
-	Indiro.load();
-	if ($('.aos-item').length > 0) {
-		AOS.init();
-	}
+    Indiro.load();
+    if ($('.aos-item').length > 0) {
+        AOS.init();
+    }
 
-	setTimeout(function () {
-		jQuery('#loading-area').addClass('active');
-		jQuery('#loading-area').fadeOut(1000);
-	}, 1000);
+    // Remove loading area completely
+    jQuery('#loading-area').remove();
+    
+    // Alternative aggressive approach to ensure it's gone
+    jQuery('body').find('#loading-area').css({
+        'display': 'none',
+        'opacity': '0',
+        'visibility': 'hidden'
+    });
 
 });
 /*  Window Load END */
